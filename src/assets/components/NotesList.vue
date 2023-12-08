@@ -1,22 +1,20 @@
 <script setup>
 import { ref } from "vue";
-const notes = ref([]);
+import NoteForm from "./NoteForm.vue";
+import Note from "./Note.vue";
 
-fetch("http://localhost:3000/notes/", {
-  method: "GET",
-  headers: { "Content-Type": "application/json" },
-})
-  .then((res) => res.json())
-  .then((data) => (notes.value = data));
+// const apiNote = "http://localhost:3000/notes/";
+
+// get request is adding title and body (you can make into a new component with the NoteForm)
 </script>
 <template>
+  <NoteForm />
   <div class="listOfNotes">
     <h2>All of Your Thoughts</h2>
     <ul>
-      <li v-for="note in notes">
-        {{ note.title }}
-        {{ note.body }}
-      </li>
+      <!-- instead of this you can render a note comp, a v-for, then the note component would do this with the delete and edit -->
+      <Note v-for="note in notes" />
     </ul>
   </div>
 </template>
+//

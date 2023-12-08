@@ -1,8 +1,5 @@
 <script setup>
-
-import NotesList from "./assets/components/NotesList.vue"
-
-
+import NotesList from "./assets/components/NotesList.vue";
 </script>
 
 <template>
@@ -10,7 +7,7 @@ import NotesList from "./assets/components/NotesList.vue"
     <h1>CarolineLovesVueNotes</h1>
     <!-- your code here -->
 
-    <form id="writeNotes">
+    <!-- <form id="writeNotes">
       <h2>Body Your Thoughts</h2>
 
       <label name="title" id="title">Title of Notes</label>
@@ -20,10 +17,9 @@ import NotesList from "./assets/components/NotesList.vue"
       <textarea v-model="text" />
 
       <button for="btn" action="submit">Post Your Thoughts</button>
-    </form>
-    
-    <NotesList />
+    </form> -->
 
+    <NotesList />
   </div>
 </template>
 
