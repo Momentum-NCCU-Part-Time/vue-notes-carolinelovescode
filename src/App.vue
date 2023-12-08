@@ -1,18 +1,8 @@
 <script setup>
-const notes = [
-  {
-    id: 1,
-    title: "Sample note",
-    body: "This is the body of my note",
-    updatedAt: "2018-01-01T00:00:00.000Z",
-  },
-  {
-    id: 2,
-    title: "This is the beginning",
-    body: "Trial One of getting your notes app to work like it should!",
-    updatedAt: "2018-01-01T00:00:00.000Z",
-  },
-];
+
+import NotesList from "./assets/components/NotesList.vue"
+
+
 </script>
 
 <template>
@@ -23,25 +13,17 @@ const notes = [
     <form id="writeNotes">
       <h2>Body Your Thoughts</h2>
 
-      <label for="title" id="title">Title of Notes</label>
+      <label name="title" id="title">Title of Notes</label>
       <input :value="text" @input="(event) => (text = event.target.value)" />
 
-      <label for="body" id="body">Body of Notes</label>
+      <label name="body" id="body">Body of Notes</label>
       <textarea v-model="text" />
 
-      <button for="btn">Post Your Thoughts</button>
+      <button for="btn" action="submit">Post Your Thoughts</button>
     </form>
-    <div class="listOfNotes">
-      <h2>All of Your Thoughts</h2>
-      <ul v-for="note in notes">
-        {{
-          note.title
-        }}
-        {{
-          note.body
-        }}
-      </ul>
-    </div>
+    
+    <NotesList />
+
   </div>
 </template>
 
