@@ -1,16 +1,3 @@
-<script setup>
-const notes = ref([]);
-fetch("http://localhost:3000/notes/", {
-  method: "GET",
-  headers: { "Content-Type": "application/json" },
-})
-  .then((res) => res.json())
-  .then((data) => (notes.value = data));
-</script>
-
-<template>
-  <li v-for="note in notes">
-    {{ note.title }}
-    {{ note.body }}
-  </li>
-</template>
+<script setup></script>
+<template></template>
+<!-- recall that what you have in here is not what you have in GitHub, that is somewhat what Chuck wanted us to do to connect components to each other -->
