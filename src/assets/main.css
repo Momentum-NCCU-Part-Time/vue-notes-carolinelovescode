@@ -1,0 +1,16 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: black;
+  color: skyblue;
+}
+.writeNotes {
+  display: flex;
+  border-color: skyblue
+  border-style: dashed;
+  border-width: 10px;
+}

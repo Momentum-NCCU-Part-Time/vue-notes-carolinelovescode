@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 
+const notes = ref([]);
 const noteTitle = ref("");
 const noteBody = ref("");
 // note form complete
@@ -11,10 +12,22 @@ const createNote = () => {
     body: JSON.stringify({ title: noteTitle.value, body: noteBody.value }),
   })
     .then((res) => res.json())
-    .then((data) => console.log(data));
+    .then((data) => (notes.value = data));
 };
+
 // .trim and add a check for data
 // delete button, its going to have an data-set id, delete function and delete fetch req
+
+const delNote = () => ({
+  title: String,
+  body: String,
+  id: Number,
+});
+
+const deleteNote = () =>
+  fetch("http://localhost:3000/notes/" + delNote.id, {
+    method: "DELETE",
+  });
 </script>
 
 <template>
@@ -30,5 +43,9 @@ const createNote = () => {
     <textarea type="text" v-model="noteBody" />
 
     <button for="btn" action="submit">Post Your Thoughts</button>
+
+    <button name="btn" id="deleteBtn" @submit.prevent="deleteNote()">
+      Empty Your Thoughts
+    </button>
   </form>
 </template>

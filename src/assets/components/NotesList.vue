@@ -13,11 +13,6 @@ fetch("http://localhost:3000/notes/", {
 })
   .then((res) => res.json())
   .then((data) => (notes.value = data));
-
-  const deleteNote = () => {
-  fetch("http://localhost:3000/notes/" + notes.id, {
-    method: "DELETE",
-}).then((res) => res.json());
 </script>
 
 <template>
@@ -32,15 +27,6 @@ fetch("http://localhost:3000/notes/", {
         <!-- {{ note.updatedAt }} -->
       </li>
     </ul>
-
-    <button
-      v-for="note in notes"
-      name="btn"
-      id="deleteBtn"
-      @submit.prevent="deleteNote"
-    >
-      Empty Your Thoughts
-    </button>
   </div>
 </template>
 //
