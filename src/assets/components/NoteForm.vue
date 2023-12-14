@@ -17,15 +17,11 @@ const createNote = () => {
 
 // .trim and add a check for data
 // delete button, its going to have an data-set id, delete function and delete fetch req
-
-const delNote = () => ({
-  title: String,
-  body: String,
-  id: Number,
-});
+const props = defineProps({ note: Object });
+console.log(props.note);
 
 const deleteNote = () =>
-  fetch("http://localhost:3000/notes/" + delNote.id, {
+  fetch("http://localhost:3000/notes/" + props.note.id, {
     method: "DELETE",
   });
 </script>
@@ -44,8 +40,18 @@ const deleteNote = () =>
 
     <button for="btn" action="submit">Post Your Thoughts</button>
 
-    <button name="btn" id="deleteBtn" @submit.prevent="deleteNote()">
+    <button name="btn" id="deleteBtn" @click="$emit('remove', note.id)">
       Empty Your Thoughts
     </button>
   </form>
 </template>
+<!-- <button
+      name="btn"
+      id="deleteBtn"
+      @click="$emit('remove', note.id)"
+       @submit.prevent="deleteNote()" 
+    there was an arrow here for the name of the \/
+      >Empty Your Thoughts
+    </button> 
+
+    -->

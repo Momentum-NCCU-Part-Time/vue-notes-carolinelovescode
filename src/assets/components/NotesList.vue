@@ -26,6 +26,12 @@ fetch("http://localhost:3000/notes/", {
         {{ note.body }}
         <!-- {{ note.updatedAt }} -->
       </li>
+      <note-single
+        v-for="note in notes"
+        :key="note.id"
+        :note="note"
+        @remove="deleteNote"
+      />
     </ul>
   </div>
 </template>
